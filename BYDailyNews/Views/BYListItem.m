@@ -34,6 +34,7 @@
     self.longGesture.allowableMovement = 20;
     [self addGestureRecognizer:self.longGesture];
     
+    //添加删除按钮
     if (![itemName isEqualToString:@"推荐"]) {
         if (!self.deleteBtn) {
             self.deleteBtn = [[UIButton alloc] initWithFrame:CGRectMake(-kDeleteW+2, -kDeleteW+2, 2*kDeleteW, 2*kDeleteW)];
@@ -45,6 +46,8 @@
             [self addSubview:self.deleteBtn];
         }
     }
+    
+    //
     if (!self.hiddenBtn) {
         self.hiddenBtn = [[UIButton alloc] initWithFrame:self.bounds];
         self.hiddenBtn.hidden = NO;
@@ -231,6 +234,8 @@
     [self animationWithView:self.hitTextLabel frame:CGRectMake(0,[self TopViewMaxY],kScreenW,30)];
 }
 
+
+//动画展示每个Item的位置变动，重新设置每个item的frame位置即可，自动进行动画过渡
 -(void)animationWithView:(UIView *)view frame:(CGRect)frame{
     [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionLayoutSubviews animations:^{
         [view setFrame:frame];

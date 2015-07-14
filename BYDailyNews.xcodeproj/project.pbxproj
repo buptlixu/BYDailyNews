@@ -14,7 +14,6 @@
 		5353B26A1A6FEDA500163594 /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 5353B24D1A6FEDA500163594 /* delete.png */; };
 		5353B26C1A6FEDA500163594 /* nav_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 5353B24F1A6FEDA500163594 /* nav_bg.png */; };
 		5353B26D1A6FEDA500163594 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5353B2501A6FEDA500163594 /* Images.xcassets */; };
-		5353B26E1A6FEDA500163594 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5353B2511A6FEDA500163594 /* Info.plist */; };
 		5353B26F1A6FEDA500163594 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5353B2521A6FEDA500163594 /* main.m */; };
 		5353B2701A6FEDA500163594 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5353B2551A6FEDA500163594 /* AppDelegate.m */; };
 		5353B2711A6FEDA500163594 /* BYListBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5353B2581A6FEDA500163594 /* BYListBar.m */; };
@@ -229,7 +228,7 @@
 		532192A61A6A9CA800A682A8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = apple;
 				TargetAttributes = {
 					532192AD1A6A9CA800A682A8 = {
@@ -268,7 +267,6 @@
 				5353B26A1A6FEDA500163594 /* delete.png in Resources */,
 				5353B2811A6FEDA900163594 /* Main.storyboard in Resources */,
 				5353B26D1A6FEDA500163594 /* Images.xcassets in Resources */,
-				5353B26E1A6FEDA500163594 /* Info.plist in Resources */,
 				5353B26C1A6FEDA500163594 /* nav_bg.png in Resources */,
 				5353B2691A6FEDA500163594 /* Arrow.png in Resources */,
 				5353B2801A6FEDA900163594 /* LaunchScreen.xib in Resources */,

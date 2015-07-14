@@ -32,8 +32,10 @@
 
 -(void)setVisibleItemList:(NSMutableArray *)visibleItemList{
     
+    //设置bar中展示的可见item
     _visibleItemList = visibleItemList;
     
+    //btnBackView是按钮图标的背景，每次点击一个btn后，更改该btn的背景颜色
     if (!self.btnBackView) {
         self.btnBackView = [[UIView alloc] initWithFrame:CGRectMake(10,(self.frame.size.height-20)/2,46,20)];
         self.btnBackView.backgroundColor = RGBColor(202.0, 51.0, 54.0);
@@ -52,6 +54,7 @@
 }
 
 
+//在bar上创建可见的button
 -(void)makeItemWithTitle:(NSString *)title{
     CGFloat itemW = [self calculateSizeWithFont:itemFont Text:title].size.width;
     UIButton *item = [[UIButton alloc] initWithFrame:CGRectMake(self.maxWidth, 0, itemW, self.frame.size.height)];
@@ -84,6 +87,8 @@
             self.listBarItemClickBlock(sender.titleLabel.text,[self findIndexOfListsWithTitle:sender.titleLabel.text]);
         }
     }
+    
+    //先将 颜色背景view移动到指定得一个item的位置，完成后再滑动listBar的scrollview，重置contentoffset
     [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         CGRect btnBackViewRect = self.btnBackView.frame;
         btnBackViewRect.size.width = sender.frame.size.width+kExtraPadding;
@@ -106,6 +111,8 @@
     UIButton *item = (UIButton *)self.btnLists[index];
     [self itemClick:item];
 }
+
+
 
 -(void)operationFromBlock:(animateType)type itemName:(NSString *)itemName index:(int)index{
     switch (type) {

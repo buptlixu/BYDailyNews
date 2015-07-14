@@ -56,6 +56,7 @@
         item.itemName = listTop[i];
         item.location = top;
         [self.topView addObject:item];
+    
         item->locateView = self.topView;
         item->topView = self.topView;
         item->bottomView = self.bottomView;

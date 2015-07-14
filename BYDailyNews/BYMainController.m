@@ -57,6 +57,9 @@
     
     __weak typeof(self) unself = self;
     
+    
+    //detailList是点击下拉按钮后展示的详细页面，有两个列表，一个top，一个bottom
+    //top是展示在导航条上的数据，bottom则是隐藏的数据
     if (!self.detailsList) {
         self.detailsList = [[BYDetailsList alloc] initWithFrame:CGRectMake(0, kListBarH-kScreenH, kScreenW, kScreenH-kListBarH)];
         self.detailsList.listAll = [NSMutableArray arrayWithObjects:listTop,listBottom, nil];
@@ -69,6 +72,9 @@
         [self.view addSubview:self.detailsList];
     }
     
+    
+    //这里将箭头视图覆盖在listbar上面
+    //listbar则是导航条，继承自UIScrollView，点击以及滚动是通过block实现的
     if (!self.listBar) {
         self.listBar = [[BYListBar alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kListBarH)];
         self.listBar.visibleItemList = listTop;
@@ -93,6 +99,7 @@
     }
     
     
+#warning    改变右侧箭头的方向，转180度
     if (!self.arrow) {
         self.arrow = [[BYArrow alloc] initWithFrame:CGRectMake(kScreenW-kArrowW, 0, kArrowW, kListBarH)];
         self.arrow.arrowBtnClick = ^(){
@@ -106,6 +113,7 @@
         [self.view addSubview:self.arrow];
     }
     
+    //主界面展示
     if (!self.mainScroller) {
         self.mainScroller = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kListBarH, kScreenW , kScreenH-kListBarH-64)];
         self.mainScroller.backgroundColor = [UIColor yellowColor];
@@ -120,13 +128,17 @@
 #warning 预加载、清除防止内存过大等操作暂时不做了~~
         [self addScrollViewWithItemName:@"推荐" index:0];
         [self addScrollViewWithItemName:@"测试" index:1];
+        [self addScrollViewWithItemName:@"再测试" index:2];
     }
 }
 
 -(void)addScrollViewWithItemName:(NSString *)itemName index:(NSInteger)index{
-    UIScrollView *scroller = [[UIScrollView alloc] initWithFrame:CGRectMake(index * self.mainScroller.frame.size.width, 0, self.mainScroller.frame.size.width, self.mainScroller.frame.size.height)];
-    scroller.backgroundColor = RGBColor(arc4random()%255, arc4random()%255, arc4random()%255);
-    [self.mainScroller addSubview:scroller];
+//    UIScrollView *scroller = [[UIScrollView alloc] initWithFrame:CGRectMake(index * self.mainScroller.frame.size.width, 0, self.mainScroller.frame.size.width, self.mainScroller.frame.size.height)];
+//    scroller.backgroundColor = RGBColor(arc4random()%255, arc4random()%255, arc4random()%255);
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 100, 100)];
+    label.text = itemName;
+    [self.mainScroller addSubview:label];
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
